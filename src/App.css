@@ -1,38 +1,72 @@
-.App {
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+}
+
+a {
+  color: #333333;
+  text-decoration: none;
+}
+
+header {
+  background-color: #333333;
+  color: aliceblue;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.todoItemDone {
+  padding: 10px;
+  border-bottom: 1px #333333 dotted;
+  background-color: #53a551;
+  text-decoration: line-through;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.todoItem {
+  padding: 10px;
+  border-bottom: 1px #333333 dotted;
+  background-color: #f4f4f4;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.newTodo {
+  padding: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.button {
+  padding: 7px 20px;
+  background-color: #555;
+  color: #f4f4f4;
+  border: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dueDate {
+  font-size: 0.65rem;
+  font-style: italic;
+}
+
+.overDueDate {
+  color: red;
+  font-size: 0.65rem;
+  font-style: italic;
+}
+
+.button:hover {
+  background-color: lightskyblue;
+}
+
+.deleteButton {
+  float: right;
+  color: #f4f4f4;
+  border-radius: 50%;
+  padding: 5px 7.5px;
+  background: rgb(105, 100, 101);
+}
+
+.App {
+  padding: 0.25rem;
 }
