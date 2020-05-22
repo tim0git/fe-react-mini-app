@@ -35,6 +35,11 @@ class App extends React.Component {
     ],
   };
 
+  componentDidMount() {
+    const newState = localStorage.getItem("todos");
+    if (newState) this.setState({ todos: JSON.parse(newState).todos });
+  }
+
   sortTodo = () => {
     this.setState((currentState) => {
       return {
@@ -47,6 +52,14 @@ class App extends React.Component {
 
   deleteTodo = (id) => {
     this.setState((currentState) => {
+      const data = JSON.stringify({
+        todos: [
+          ...currentState.todos.filter((item) => {
+            return item.id !== id;
+          }),
+        ],
+      });
+      localStorage.setItem("todos", data);
       return {
         todos: [
           ...currentState.todos.filter((item) => {
@@ -58,7 +71,6 @@ class App extends React.Component {
   };
 
   addToDo = (props) => {
-    //console.log(props.title);
     const newToDo = {
       id: Math.floor(Math.random() * 1000),
       title: props.title,
@@ -66,20 +78,27 @@ class App extends React.Component {
       complete: false,
     };
     this.setState({ todos: [newToDo, ...this.state.todos] });
+    const data = JSON.stringify({ todos: [newToDo, ...this.state.todos] });
+    localStorage.setItem("todos", data);
   };
 
   markComplete = (id) => {
-    console.log(id);
-    this.setState((currentState) => {
-      return {
-        todos: currentState.todos.map((todo) => {
-          if (todo.id === id) {
-            todo.complete = !todo.complete;
-          }
-          return todo;
-        }),
-      };
-    });
+    this.setState(
+      (currentState) => {
+        return {
+          todos: currentState.todos.map((todo) => {
+            if (todo.id === id) {
+              todo.complete = !todo.complete;
+            }
+            return todo;
+          }),
+        };
+      },
+      () => {
+        const data = JSON.stringify({ todos: [...this.state.todos] });
+        localStorage.setItem("todos", data);
+      }
+    );
   };
 
   render() {

@@ -28,13 +28,10 @@ header {
 }
 
 .todoItem {
+  border-color: 4px solid red;
   padding: 10px;
   border-bottom: 1px #333333 dotted;
   background-color: #f4f4f4;
-}
-
-.newTodo {
-  padding: 5px;
 }
 
 .button {
@@ -45,11 +42,13 @@ header {
 }
 
 .dueDate {
+  margin-left: 1rem;
   font-size: 0.65rem;
   font-style: italic;
 }
 
 .overDueDate {
+  margin-left: 1rem;
   color: red;
   font-size: 0.65rem;
   font-style: italic;
@@ -69,4 +68,46 @@ header {
 
 .App {
   padding: 0.25rem;
+}
+.input {
+  min-width: 100%;
+  min-height: 100%;
+}
+.newTodoForm {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    "a a a"
+    "b b c";
+}
+
+.newTodoInput {
+  grid-area: a;
+}
+
+.newTodoDate {
+  grid-area: b;
+}
+
+.createButton {
+  grid-area: c;
+  background-color: rgb(179, 135, 221);
+  padding: 7px 20px;
+  border-radius: 5px;
+  margin-right: 0.3rem;
+  float: right;
+}
+
+.sortContainer {
+  padding: 0.25rem;
+  display: grid;
+  grid-template-columns: repeat(3 1fr);
+  grid-template-rows: 1fr;
+}
+
+.sortButton {
+  background-color: rgb(221, 177, 135);
+  border-radius: 5px;
+  min-height: 2rem;
 }

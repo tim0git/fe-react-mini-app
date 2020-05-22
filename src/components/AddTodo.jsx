@@ -25,19 +25,19 @@ export class AddTodo extends Component {
 
   render() {
     return (
-      <form action="" onSubmit={this.createToDo}>
-        <label htmlFor="">
-          <input
+      <form className="newTodoForm" onSubmit={this.createToDo}>
+        <label className="newTodoInput">
+          <input className="input"
             type="text"
             name="title"
             placeholder="new todo..."
-            className="newTodo"
             value={this.state.title}
             onChange={this.createNewTitle}
           />
         </label>
-        <label htmlFor="todoDate">
+        <label className="newTodoDate">
           <input
+          className="input"
             type="date"
             name="todoDate"
             id="todoDate"
@@ -46,9 +46,7 @@ export class AddTodo extends Component {
           />
         </label>
         <label>
-          <button type="submit" className="button">
-            Submitt
-          </button>
+          <button className="createButton" type="submit">Submitt</button>
         </label>
       </form>
     );
